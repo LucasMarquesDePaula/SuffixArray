@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     gets(buffer);
     buffer_length = strlen(buffer);
 
-    suffixes = make_suffixes(buffer, buffer_length);
+    suffixes = build_suffixes(buffer, buffer_length);
 
     for (i = 0; i < buffer_length; i++) 
     {
@@ -39,6 +39,6 @@ int main(int argc, char *argv[])
 
     free(suffixes);
 
-    getchar();
+    // getchar();
 
 }

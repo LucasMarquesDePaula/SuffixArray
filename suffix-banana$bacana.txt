@@ -1,0 +1,30 @@
+Texto: banana$bacana
+  6  $bacana
+ 12  a
+  5  a$bacana
+  8  acana
+ 10  ana
+  3  ana$bacana
+  1  anana$bacana
+  7  bacana
+  0  banana$bacana
+  9  cana
+ 11  na
+  4  na$bacana
+  2  nana$bacana
+Busca pelo padrao anana$bacana
+i=6 sa=1  sufixo: anana$bacana
+SA   LCP  Sufixos
+  6    0  $bacana
+ 12    1  a
+  5    1  a$bacana
+  8    1  acana
+ 10    3  ana
+  3    3  ana$bacana
+  1    0  anana$bacana
+  7    2  bacana
+  0    0  banana$bacana
+  9    0  cana
+ 11    2  na
+  4    2  na$bacana
+  2    0  nana$bacana

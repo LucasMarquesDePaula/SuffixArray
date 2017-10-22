@@ -3,13 +3,13 @@
 
 #include <stdlib.h>
 
-// Longest Common Prefix
-int *lcp_kasai(const char *txt, int *suffixes, int n)
+// Longest Common Prefix by Kasai
+int *lcp_kasai(const char *text, int *suffixes, int suffixes_length)
 {
     int *lcp = NULL, *inv = NULL;
     int i, j, k;
 
-    lcp = (int *)malloc(sizeof(int) * n);
+    lcp = (int *)malloc(sizeof(int) * suffixes_length);
 
     // Mem was allocated
     if (lcp == NULL)
@@ -18,7 +18,7 @@ int *lcp_kasai(const char *txt, int *suffixes, int n)
     }
 
 
-    inv = (int *)malloc(sizeof(int) * n);
+    inv = (int *)malloc(sizeof(int) * suffixes_length);
 
     // Mem was allocated
     if (inv == NULL)
@@ -29,35 +29,51 @@ int *lcp_kasai(const char *txt, int *suffixes, int n)
 
 
     // Fill initial data
-    for (i = 0; i < n; i++)
+    for (i = 0; i < suffixes_length; i++)
     {
         lcp[i] = 0;
         inv[suffixes[i]] = i;
     }
 
 
-    // Main algorithm
-    for (i = 0, k = 0; i < n; i++)
+    /**
+     * Main algorithm
+     */
+
+    // Initialize length of previous LCP
+    k = 0;
+
+
+    // Process all suffixes one by one starting from
+    // first suffix in txt[]
+    for (i = 0, k = 0; i < suffixes_length; i++)
     {
-        if (inv[i] == n - 1)
+
+        //  If the current suffix is at n-1, then we don’t
+        // have next substring to consider. So lcp is not
+        // defined for this substring, we put zero. 
+        if (inv[i] == suffixes_length - 1)
         {
             k = 0;
             continue;
         }
-        /**
-        * j keeps the index of next substring
-        * to be considered on the comparation with the
-        * current substring or the next string in the suffix array
-        */
+
+
+        //  j contains index of the next substring to
+        // be considered  to compare with the present
+        // substring, i.e., next string in suffix array
         j = suffixes[inv[i] + 1];
 
-        while (i + k < n && j + k < n && txt[i + k] == txt[j + k])
+        // Directly start matching from k'th index as
+        // at-least k-1 characters will match
+        while (i + k < suffixes_length && j + k < suffixes_length && text[i + k] == text[j + k])
         {
             k++;
         }
 
         lcp[inv[i]] = k;
 
+        // Deleting the starting character from the string.
         if (k > 0)
         {
             k--;

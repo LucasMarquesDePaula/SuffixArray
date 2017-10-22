@@ -9,35 +9,35 @@
 #include "suffix.h"
 
 
-int *make_suffixes(const char *text, const int text_len)
+int *build_suffixes(char *text, const int text_length)
 {
     Suffix *suffixes;
     int *result;
     int i;
-    suffixes = (Suffix *)malloc(sizeof(Suffix) * text_len);
-    for (i = 0; i < text_len; i++)
+    suffixes = (Suffix *)malloc(sizeof(Suffix) * text_length);
+    for (i = 0; i < text_length; i++)
     {
         suffixes[i].index = i;
-        suffixes[i].suffix = (text + i);
+        suffixes[i].suffix = &text[i];
         printf("Ent: %s\n", suffixes[i].suffix);
     }
 
     // aumenta a complexidade do algoritmo
     // quicksort( sufixos, sufixos+n, cmp); 
-    merge_sort(suffixes, 0, text_len - 1);
-    result = (int *)malloc(sizeof(int) * text_len);
-    for (i = 0; i < text_len; i++) {
+    merge_sort(suffixes, 0, text_length - 1);
+    result = (int *)malloc(sizeof(int) * text_length);
+    for (i = 0; i < text_length; i++) {
         result[i] = suffixes[i].index;
     }
     free(suffixes);
     return result;
 }
 
-int find(char *key, char *txt, const int *suffixes, int suffixes_size)
+int find(char *key, char *txt, const int *suffixes, int suffixes_length)
 {
     int key_length = strlen(key);
     // Binary search
-    int left = 0, right = suffixes_size - 1;
+    int left = 0, right = suffixes_length - 1;
     int middle, cmp;
     while (left <= right)
     {
