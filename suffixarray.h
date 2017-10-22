@@ -5,10 +5,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "suffix.h"
 #include "mergesort.h"
+#include "suffix.h"
 
-int *make_suffix_array(const char *text, const int text_len)
+
+int *make_suffixes(const char *text, const int text_len)
 {
     Suffix *suffixes;
     int *result;
@@ -20,8 +21,9 @@ int *make_suffix_array(const char *text, const int text_len)
         suffixes[i].suffix = (text + i);
         printf("Ent: %s\n", suffixes[i].suffix);
     }
-    /* aumenta a complexidade do algoritmo
-    quicksort( sufixos, sufixos+n, cmp); */
+
+    // aumenta a complexidade do algoritmo
+    // quicksort( sufixos, sufixos+n, cmp); 
     merge_sort(suffixes, 0, text_len - 1);
     result = (int *)malloc(sizeof(int) * text_len);
     for (i = 0; i < text_len; i++) {

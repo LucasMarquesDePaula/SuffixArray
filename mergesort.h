@@ -42,13 +42,13 @@ void suffix_merge(Suffix *suffixes, const int beginning, const int middle, const
     }
 }
 
-void suffix_merge_sort(Suffix *suffixes, const int beginning, const int end)
+void merge_sort(Suffix *suffixes, const int beginning, const int end)
 {
     int middle;
     if (beginning < end) {
         middle = (end + beginning) / 2;
-        suffix_merge_sort(suffixes, beginning, middle);
-        suffix_merge_sort(suffixes, middle + 1, end);
+        merge_sort(suffixes, beginning, middle);
+        merge_sort(suffixes, middle + 1, end);
         suffix_merge(suffixes, beginning, middle, end);
     }
 }

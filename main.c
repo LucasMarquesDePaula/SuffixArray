@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     gets(buffer);
     buffer_length = strlen(buffer);
 
-    suffixes = make_suffix_array(buffer, buffer_length);
+    suffixes = make_suffixes(buffer, buffer_length);
 
     for (i = 0; i < buffer_length; i++) 
     {
@@ -36,5 +36,9 @@ int main(int argc, char *argv[])
         printf("%3d  %3d  %s\n", suffixes[i], lcp[i], &buffer[suffixes[i]]);
     }
 
+
     free(suffixes);
+
+    getchar();
+
 }
