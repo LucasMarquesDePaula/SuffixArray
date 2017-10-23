@@ -27,10 +27,27 @@
     <ClInclude Include="kasai.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="merge.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="suffix-banana.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="suffix-bacana.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="suffix-banana$bacana.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="suffix-bananabacana.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

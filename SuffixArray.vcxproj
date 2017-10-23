@@ -146,9 +146,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kasai.h" />
+    <ClInclude Include="merge.h" />
     <ClInclude Include="mergesort.h" />
     <ClInclude Include="suffix.h" />
     <ClInclude Include="suffixarray.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="suffix-bacana.txt" />
+    <Text Include="suffix-banana$bacana.txt" />
+    <Text Include="suffix-banana.txt" />
+    <Text Include="suffix-bananabacana.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

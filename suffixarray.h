@@ -9,12 +9,12 @@
 #include "suffix.h"
 
 
-int *build_suffixes(char *text, const int text_length)
+int *build_suffix_array(char *text, const int text_length)
 {
-    Suffix *suffixes;
     int *result;
     int i;
-    suffixes = (Suffix *)malloc(sizeof(Suffix) * text_length);
+    Suffix *suffixes = (Suffix *)malloc(sizeof(Suffix) * text_length);
+    
     for (i = 0; i < text_length; i++)
     {
         suffixes[i].index = i;
@@ -23,7 +23,7 @@ int *build_suffixes(char *text, const int text_length)
     }
 
     // aumenta a complexidade do algoritmo
-    // quicksort( sufixos, sufixos+n, cmp); 
+    // quicksort(sufixos, sufixos + n, cmp); 
     merge_sort(suffixes, 0, text_length - 1);
     result = (int *)malloc(sizeof(int) * text_length);
     for (i = 0; i < text_length; i++) {

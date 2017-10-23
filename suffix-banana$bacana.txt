@@ -1,4 +1,43 @@
-Texto: banana$bacana
+Ent: banana
+Ent: anana
+Ent: nana
+Ent: ana
+Ent: na
+Ent: a
+Ent: bacana
+Ent: acana
+Ent: cana
+Ent: ana
+Ent: na
+Ent: a
+Ent: banana$bacana
+Ent: anana$bacana
+Ent: nana$bacana
+Ent: ana$bacana
+Ent: na$bacana
+Ent: a$bacana
+Ent: $bacana
+Ent: bacana
+Ent: acana
+Ent: cana
+Ent: ana
+Ent: na
+Ent: a
+banana
+  5  a
+  3  ana
+  1  anana
+  0  banana
+  4  na
+  2  nana
+bacana
+  5  a
+  1  acana
+  3  ana
+  0  bacana
+  2  cana
+  4  na
+banana$bacana
   6  $bacana
  12  a
   5  a$bacana
@@ -12,19 +51,3 @@ Texto: banana$bacana
  11  na
   4  na$bacana
   2  nana$bacana
-Busca pelo padrao anana$bacana
-i=6 sa=1  sufixo: anana$bacana
-SA   LCP  Sufixos
-  6    0  $bacana
- 12    1  a
-  5    1  a$bacana
-  8    1  acana
- 10    3  ana
-  3    3  ana$bacana
-  1    0  anana$bacana
-  7    2  bacana
-  0    0  banana$bacana
-  9    0  cana
- 11    2  na
-  4    2  na$bacana
-  2    0  nana$bacana
