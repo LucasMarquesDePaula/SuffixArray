@@ -1,0 +1,84 @@
+
+
+###############################
+# Suffix Arrays de cada texto #
+###############################
+
+
+build_suffix_array
+SA   LCP  Sufixos
+  6    1  a
+  3    1  abra
+  1    0  acabra
+  4    0  bra
+  2    0  cabra
+  0    0  macabra
+  5    0  ra
+
+
+build_suffix_array
+SA   LCP  Sufixos
+ 10    1  a
+  7    4  abra
+  0    1  abracadabra
+  3    1  acadabra
+  5    0  adabra
+  8    3  bra
+  1    0  bracadabra
+  4    0  cadabra
+  6    0  dabra
+  9    2  ra
+  2    0  racadabra
+
+
+#################################
+# Suffix Arrays da concatenacao #
+#################################
+
+
+build_suffix_array
+SA   LCP  Sufixos
+ 17    1  a
+  6    1  aabracadabra
+ 14    4  abra
+  3    4  abraabracadabra
+  7    1  abracadabra
+  1    3  acabraabracadabra
+ 10    1  acadabra
+ 12    0  adabra
+ 15    3  bra
+  4    3  braabracadabra
+  8    0  bracadabra
+  2    2  cabraabracadabra
+ 11    0  cadabra
+ 13    0  dabra
+  0    0  macabraabracadabra
+ 16    2  ra
+  5    2  raabracadabra
+  9    0  racadabra
+
+
+merge_suffix_array
+SA   LCP  Sufixos
+ 17    1  a
+  6    1  aabracadabra
+ 14    4  abra
+  3    4  abraabracadabra
+  7    1  abracadabra
+  1    3  acabraabracadabra
+ 10    1  acadabra
+ 12    0  adabra
+ 15    3  bra
+  4    3  braabracadabra
+  8    0  bracadabra
+  2    2  cabraabracadabra
+ 11    0  cadabra
+ 13    0  dabra
+  0    0  macabraabracadabra
+ 16    2  ra
+  5    2  raabracadabra
+  9    0  racadabra
+
+
+# Sucesso:
+# build_suffix_array == merge_suffix_array
