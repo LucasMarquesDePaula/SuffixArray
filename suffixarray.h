@@ -19,7 +19,7 @@ int *build_suffix_array(char *text, const int text_length)
     {
         suffixes[i].index = i;
         suffixes[i].suffix = &text[i];
-        printf("Ent: %s\n", suffixes[i].suffix);
+//        printf("Ent: %s\n", suffixes[i].suffix);
     }
 
     // aumenta a complexidade do algoritmo

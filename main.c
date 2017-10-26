@@ -9,17 +9,17 @@
 #define MAX_BUFFER 65536
 
 void test1();
-void test2();
+int test2();
+void print_suffixes(char *text, int *suffixes, int length);
 
 int main(int argc, char *argv[])
 {
-    test2();
-    getchar();
+    return test2();
 }
 
-void test2() {
-    char *text1 = "banana";
-    char *text2 = "bacana";
+int test2() {
+    char *text1 = "macabra";
+    char *text2 = "abracadabra";
 
     int length1 = strlen(text1);
     int length2 = strlen(text2);
@@ -35,35 +35,55 @@ void test2() {
     int *suffixes2 = build_suffix_array(text2, length2);
     int *suffixes3 = build_suffix_array(text3, length3);
 
-    int *suffixes_merged = merge(text1, suffixes1, length1, text2, suffixes2, length2);
+    int *suffixes_merged = merge_suffix_array(text1, suffixes1, length1, text2, suffixes2, length2);
 
     int i;
 
-    printf("%s\n", text1);
-    for (i = 0; i < length1; i++)
+    printf("\n\n");
+    printf("###############################\n");
+    printf("# Suffix Arrays de cada texto #\n");
+    printf("###############################\n");
+
+    printf("\n\n");
+    printf("build_suffix_array\n");
+    print_suffixes(text1, suffixes1, length1);
+
+    printf("\n\n");
+    printf("build_suffix_array\n");
+    print_suffixes(text2, suffixes2, length2);
+
+
+    printf("\n\n");
+    printf("#################################\n");
+    printf("# Suffix Arrays da concatenacao #\n");
+    printf("#################################\n");
+
+    printf("\n\n");
+    printf("build_suffix_array\n");
+    print_suffixes(text3, suffixes3, length3);
+
+    printf("\n\n");
+    printf("merge_suffix_array\n");
+    print_suffixes(text3, suffixes_merged, length3);
+
+    // Validação:
+    //  suffixes_merged e suffixes3 foram construidos 
+    // com funcoes diferentes. Porem devem ser iguais
+    for (i = 0; i < length3; i++) 
     {
-        printf("%3d  %s\n", suffixes1[i], &text1[suffixes1[i]]);
+        if (suffixes3[i] != suffixes_merged[i])
+        {
+            printf("# Erro:\n");
+            printf("# build_suffix_array != merge_suffix_array\n");
+            printf("# Indíce: %d, build_suffix_array: %d, merge_suffix_array: %d\n", i, suffixes3[i], suffixes_merged[i]);
+           return 1;
+        }
     }
 
-    printf("%s\n", text2);
-    for (i = 0; i < length2; i++)
-    {
-        printf("%3d  %s\n", suffixes2[i], &text2[suffixes2[i]]);
-    }
-
-    printf("%s\n", text3);
-    for (i = 0; i < length3; i++)
-    {
-        printf("%3d  %s\n", suffixes3[i], &text3[suffixes3[i]]);
-    }
-
-    printf("%s\n", text3);
-    for (i = 0; i < length3; i++)
-    {
-        printf("%3d  %s\n", suffixes_merged[i], &text3[suffixes_merged[i]]);
-    }
-
-
+    printf("\n\n");
+    printf("# Sucesso:\n");
+    printf("# build_suffix_array == merge_suffix_array\n");
+    return 0;
 }
 
 void test1() {
@@ -71,7 +91,7 @@ void test1() {
     int *suffixes = NULL, i, buffer_length;
     int *lcp = NULL;
 
-    printf("Texto: ");
+    printf("# Texto: ");
     gets(buffer);
     buffer_length = strlen(buffer);
 
@@ -97,4 +117,17 @@ void test1() {
 
 
     free(suffixes);
+}
+
+void print_suffixes(char *text, int *suffixes, int length) {
+    int i;
+
+    int *lcp = lcp_kasai(text, suffixes, length);
+
+    printf("SA   LCP  Sufixos\n");
+    for (i = 0; i < length; i++)
+    {
+        printf("%3d  %3d  %s\n", suffixes[i], lcp[i], &text[suffixes[i]]);
+    }
+    free(lcp);
 }

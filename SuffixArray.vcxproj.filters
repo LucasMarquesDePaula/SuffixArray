@@ -37,16 +37,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="suffix-banana.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="suffix-bacana.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="suffix-banana$bacana.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="suffix-bananabacana.txt">
+    <Text Include="C:\Users\Lucas\output.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

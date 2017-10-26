@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int *merge(char *text1, int *suffixes1, int suffixes1_length, char *text2, int *suffixes2, int suffixes2_length) {
+int *merge_suffix_array(char *text1, int *suffixes1, int suffixes1_length, char *text2, int *suffixes2, int suffixes2_length) {
     
     int beginning = 0,
         middle = suffixes1_length - 1,
@@ -40,7 +40,7 @@ int *merge(char *text1, int *suffixes1, int suffixes1_length, char *text2, int *
 
     while (com2 <= end)
     {
-        sulffixes_aux[com_aux] = suffixes2[com2] + middle;
+        sulffixes_aux[com_aux] = suffixes2[com2] + middle + 1;
         com_aux++;
         com2++;
     }
